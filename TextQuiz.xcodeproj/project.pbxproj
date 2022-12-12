@@ -14,6 +14,7 @@
 		C6A35468294725A2006187B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A35466294725A2006187B4 /* LaunchScreen.storyboard */; };
 		C6A3547029472D1B006187B4 /* FirstScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A3546F29472D1B006187B4 /* FirstScreenViewController.swift */; };
 		C6A3547229473B7C006187B4 /* TextForScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A3547129473B7C006187B4 /* TextForScreens.swift */; };
+		C6A3547629478072006187B4 /* thirdScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6A3547529478072006187B4 /* thirdScreenController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		C6A35469294725A2006187B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6A3546F29472D1B006187B4 /* FirstScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstScreenViewController.swift; sourceTree = "<group>"; };
 		C6A3547129473B7C006187B4 /* TextForScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextForScreens.swift; sourceTree = "<group>"; };
+		C6A3547529478072006187B4 /* thirdScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = thirdScreenController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			children = (
 				C6A3545F294725A2006187B4 /* mainScreenController.swift */,
 				C6A3546F29472D1B006187B4 /* FirstScreenViewController.swift */,
+				C6A3547529478072006187B4 /* thirdScreenController.swift */,
 			);
 			path = "VC's";
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 				C6A3547029472D1B006187B4 /* FirstScreenViewController.swift in Sources */,
 				C6A3545C294725A2006187B4 /* AppDelegate.swift in Sources */,
 				C6A3545E294725A2006187B4 /* SceneDelegate.swift in Sources */,
+				C6A3547629478072006187B4 /* thirdScreenController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

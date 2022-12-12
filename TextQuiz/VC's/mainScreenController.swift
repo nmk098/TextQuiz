@@ -7,7 +7,7 @@
 
 import UIKit
 
-var name: [String] = ["default"]
+var name: [String] = ["Stranger"]
 
 class MainScreenController: UIViewController, UITextFieldDelegate {
     
@@ -63,6 +63,9 @@ class MainScreenController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+       saveButton.setTitle("Save", for: .normal)
+       saveButton.backgroundColor = .systemGray4
+   
     }
     
     override func viewDidLoad() {
@@ -117,8 +120,10 @@ class MainScreenController: UIViewController, UITextFieldDelegate {
         name.removeLast()
         name.append(newName)
         print(name)
-        saveButton.setTitle("Nice!", for: .normal)
-        saveButton.backgroundColor = .green
+        if nameTextField.text!.count > 0 {
+            saveButton.setTitle("Nice!", for: .normal)
+            saveButton.backgroundColor = .green
+        }else { return }
     }
     
  @objc
