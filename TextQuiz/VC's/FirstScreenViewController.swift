@@ -30,15 +30,16 @@ class FirstScreenViewController: UIViewController {
    
     var storyLabel: UILabel = {
         let label = UILabel()
-        label.text = "Hi, \(name.formatted()), glat to see you!"
+        label.text = "Hi, \(name.formatted()), glad to see you!"
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = .boldSystemFont(ofSize: 20)
         return label
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(storyLabel)
         view.backgroundColor = .darkGray
-        self.navigationItem.setHidesBackButton(true, animated: true)
+     //   self.navigationItem.setHidesBackButton(true, animated: true)
        
         NSLayoutConstraint.activate([
             storyLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 80),

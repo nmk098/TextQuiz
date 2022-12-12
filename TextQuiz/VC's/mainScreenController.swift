@@ -13,7 +13,7 @@ class MainScreenController: UIViewController, UITextFieldDelegate {
     
     var delegate: UITextFieldDelegate?
     
-    
+ // MARK: UI-elements
     
     private lazy var goButton: UIButton = {
         let button = UIButton()
@@ -38,12 +38,32 @@ class MainScreenController: UIViewController, UITextFieldDelegate {
     private var nameTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.borderStyle = .bezel
-        textField.layer.cornerRadius = textField.frame.height / 2
+        textField.borderStyle = .roundedRect
         textField.clearButtonMode = .whileEditing
-        
+        textField.adjustsFontSizeToFitWidth = true
+        textField.returnKeyType = .done
+        textField.addTarget(self, action: #selector(nameTextFieldChange), for: .allEditingEvents)
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
+        textField.keyboardType = .asciiCapable
         return textField
     }()
+   
+    // MARK: lifecycle func's
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        return true
+    }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        nameTextField.becomeFirstResponder()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nameTextField.resignFirstResponder()
+        return true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +74,6 @@ class MainScreenController: UIViewController, UITextFieldDelegate {
         view.backgroundColor = .darkGray
         nameTextField.placeholder = "Enter your name"
         nameTextField.backgroundColor = .systemGray4
-        
         
         NSLayoutConstraint.activate([
             goButton.topAnchor.constraint(equalTo: view.centerYAnchor, constant: 80),
@@ -80,24 +99,46 @@ class MainScreenController: UIViewController, UITextFieldDelegate {
         super.viewWillLayoutSubviews()
         goButton.layer.cornerRadius = goButton.frame.height / 2
         saveButton.layer.cornerRadius = saveButton.frame.height / 2
+        nameTextField.layer.cornerRadius = nameTextField.frame.height / 2
+        
     }
+  
+    // MARK: objs-actions
     
     @objc
     private func goButtonTap() {
         let firstScreenViewController = FirstScreenViewController()
         navigationController?.pushViewController(firstScreenViewController, animated: true)
     }
-
+    
     @objc
     private func saveButtonTap() {
         guard let newName = nameTextField.text else { return }
         name.removeLast()
         name.append(newName)
         print(name)
+        saveButton.setTitle("Nice!", for: .normal)
+        saveButton.backgroundColor = .green
     }
-}
-        
     
+ @objc
+    private func nameTextFieldChange(){
+        if nameTextField.text?.count == 0 {
+            saveButton.isEnabled = false
+            goButton.isEnabled = false
+        } else if nameTextField.text!.count > 10{
+            saveButton.isEnabled = false
+            goButton.isEnabled = false
+        } else {
+            saveButton.isEnabled = true
+            goButton.isEnabled = true
+        }
+        }
+        }
+    
+
+        
+
 
 
 
