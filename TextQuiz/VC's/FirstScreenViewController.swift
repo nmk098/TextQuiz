@@ -14,6 +14,7 @@ class FirstScreenViewController: UIViewController {
         button.setTitle("Forward!", for: .normal)
         button.backgroundColor = .systemMint
         button.layer.cornerRadius = button.frame.height / 2
+        button.addTarget(self, action: #selector(forwardButtonTap), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor(.black, for: .normal)
         return button
@@ -68,6 +69,11 @@ class FirstScreenViewController: UIViewController {
     private func backButtonTap(){
         navigationController?.popViewController(animated: true)
         
+    }
+  @objc
+    private func forwardButtonTap(){
+        let thirdScreenController = thirdScreenController()
+        navigationController?.pushViewController(thirdScreenController, animated: true)
     }
 }
 
